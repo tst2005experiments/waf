@@ -4,10 +4,10 @@
 - Customize WAF (Web application firewall) with Nginx+Lua
 - Watched Lua for two days, practiced hands, refer to https://github.com/loveshell/ngx_lua_waf
 
-###Requires generation
+### Requires generation
     Because some of Nginx's security protection features are limited, study whether you can write a WAF yourself, refer to (copy) Kindle's ngx_lua_waf, try to write one yourself, use two days, learn Lua, and write. But not a security professional, only a few simple features have been implemented:
 
-####function list:
+#### function list:
 1. Support IP whitelist and blacklist functions, and directly reject blacklisted IP access.
 2. Support URL whitelisting, which defines URLs that do not need to be filtered.
 3. Support User-Agent filtering, match the entries in the custom rules, and then process them (return 403).
@@ -18,10 +18,10 @@
 8. Support logging, log all rejected operations to the log.
 9. Logging is in JSON format for easy log analysis, such as using ELKStack for attack log collection, storage, search and display.
 
-####WAF implementation
+#### WAF implementation
    WAF describes the HTTP request (protocol parsing module), rule detection (rule module), performs different defense actions (action module), and records the defense process (log module). Therefore, the implementation of WAF in this paper consists of five modules (configuration module, protocol parsing module, rule module, action module, error handling module).
 
-####Nginx + Lua Deployment
+#### Nginx + Lua Deployment
 
 Environmental preparation
     [root@nginx-lua ~]# cd /usr/local/src
@@ -69,7 +69,7 @@ Install Nginx and load the module
 If you do not create a symbolic link, the following exception may occur:
 error while loading shared libraries: libluajit-5.1.so.2: cannot open shared object file: No such file or directory
 
-#####Test Installation
+##### Test Installation
 After the installation is complete, the following can be tested and installed, modify nginx.conf to add the first configuration.
 <pre>
          Location /hello {
@@ -119,7 +119,7 @@ Hello World
 HelloWorld
 </pre>
 
-####WAFDeployment
+#### WAFDeployment
 
 <pre>
 #git clone https://github.com/unixhot/waf.git
